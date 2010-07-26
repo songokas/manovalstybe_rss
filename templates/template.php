@@ -20,7 +20,7 @@
 %s
 
 
-<p>Šią ataskaitą suformavo &lt;manovalstybe&gt; programėlė, kurios kodą galite rasti &lt;<a href="http://en.wikipedia.org/wiki/Link_rot">čia</a>&gt;.</p>
+<p>Šią ataskaitą suformavo &lt;manovalstybe&gt; programėlė, kurios kodą galite rasti &lt;<a href="http://github.com/tomasj/manovalstybe_rss.git">čia</a>&gt;.</p>
     </body>
 </html>
 

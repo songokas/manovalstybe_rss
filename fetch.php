@@ -1,6 +1,6 @@
 <?php
 
-$config['mail_to'] = 'bizabrazija@gmail.com';
+$config['mail_to'] = 'manovalstybe@googlegroups.com ';
 $config['mail_from'] = 'manovalstybe-apzvalga@manovalstybe.lt';
 
 $config['links']['manovalstybe']['site'][] = 'http://manovalstybe.lt/feed/';
