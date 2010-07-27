@@ -1,1 +1,1 @@
-<br/><?=$date?> <a href="<?=$node-link;?>"><?=$node->title?></a>
+<br/><?=$date?> <a href="<?=$node->link;?>"><?=$node->title?></a>
