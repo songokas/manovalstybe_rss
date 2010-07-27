@@ -3,7 +3,7 @@
 <p>Tai yra automatiškai suformuota <a href="http://<?=$url?>"><?=$url?></a> darbų ir naujienų ataskaita.
 <br/>
 
-<p>Laikotarpis: &lt;<?=$config['from']?>&gt; -- &lt;<?=$config['to']?>&gt;</p>
+<p>Laikotarpis: <?=$config['from']?> &mdash; <?=$config['to']?></p>
 
 <br/>
 
@@ -20,7 +20,7 @@
 %s
 
 
-<p>Šią ataskaitą suformavo &lt;manovalstybe&gt; programėlė, kurios kodą galite rasti &lt;<a href="http://github.com/tomasj/manovalstybe_rss.git">čia</a>&gt;.</p>
+<p>Šią ataskaitą suformavo &lt;manovalstybe&gt; programėlė, kurios kodą galite rasti <a href="http://github.com/tomasj/manovalstybe_rss.git">čia</a>.</p>
     </body>
 </html>
 
