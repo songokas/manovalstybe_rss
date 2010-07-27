@@ -4,9 +4,9 @@ $config['mail_to'] = 'manovalstybe@googlegroups.com';
 $config['mail_from'] = 'manovalstybe-apzvalga@manovalstybe.lt';
 
 $config['links']['manovalstybe']['site'][] = 'http://manovalstybe.lt/feed/';
+$config['links']['manovalstybe']['site'][] = 'http://manovalstybe.lt/en/feed/';
 $config['links']['manovalstybe']['git']['manovalstybe-wp-theme'] = 'http://github.com/emilis/manovalstybe-wp-theme/commits/master.atom';
-
-$config['links']['manovalstybe_en']['site'][] = 'http://manovalstybe.lt/en/feed/';
+$config['links']['manovalstybe']['git']['manovalstybe_rss'] = 'http://github.com/tomasj/manovalstybe_rss/commits/master.atom';
 
 $config['links']['parasykjiems']['git']['parasykjiems'] = 'http://bitbucket.org/dariusdamalakas/parasykjiems/atom';
 $config['links']['parasykjiems']['teambox'][] = 'http://teambox.com/projects/parasykjiems.rss?rss_token=aa3b431326f0f22fc43c09917606dde90eabb872103888';
@@ -22,15 +22,14 @@ else $config['from'] = date('Y-m-d', strtotime('-2 monday'));
 $config['to'] = date('Y-m-d', strtotime('-1 sunday'));
 
 
-$lang['manovalstybe'] = 'www.manovalstybe.lt';
-$lang['manovalstybe_en'] = 'www.manovalstybe.lt/en';
-$lang['parasykjiems'] = 'www.pararykjiems.lt';
-$lang['kaveikiavaldzia'] = 'www.kaveikiavaldzia.lt';
+$lang['manovalstybe'] = 'ManoValstybe.lt';
+$lang['parasykjiems'] = 'ParasykJiems.lt';
+$lang['kaveikiavaldzia'] = 'KaVeikiaValdzia.lt';
 
-$lang['atom_title'] = 'Diskusijos:<br/>';
-$lang['teambox_title'] = 'Teambox diskusijos ir darbai:<br/>';
-$lang['site_title'] = '<a href="http://%s">%s</a> tinklaraščio naujienos:<br/>';
-$lang['git_title'] = '<a href="%s">%s</a> kodo pakeitimai:<br/>';
+$lang['atom_title'] = '<h3>Diskusijos:</h3>';
+$lang['teambox_title'] = '<h3>Teambox diskusijos ir darbai:</h3>';
+$lang['site_title'] = '<h3><a href="http://%s">%s</a> tinklaraščio naujienos:</h3>';
+$lang['git_title'] = '<h3><a href="%s">%s</a> kodo pakeitimai:</h3>';
 
 $lang['nochanges'] = '<p>Pakeitimų nėra.</p><br/>';
 $lang['nonews'] = '<p>Naujienų nėra.</p><br/>';
