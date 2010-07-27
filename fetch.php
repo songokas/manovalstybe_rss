@@ -161,7 +161,7 @@ foreach ( $config['links'] as $site_name => $site ) {
 	}
     }
 
-    $subject = $config['from'].' '.$config['to'].' savaitės apžvalga';
+    $subject = $site_name . ' savaitės apžvalga';
     ob_start();
     include 'templates/template.php';
     $msg=ob_get_clean();
