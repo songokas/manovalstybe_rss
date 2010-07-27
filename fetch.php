@@ -140,24 +140,25 @@ foreach ( $config['links'] as $site_name => $site ) {
 
     foreach ( $site as $type => $links ) {
 
-	foreach ( $links as $key => $link ) {
-	    
-	    $xml = @simplexml_load_file($link);
-	    if ( ! $xml ) continue;
-	    
-	    if ( $type == 'git') {
-		$git_msg = git_rss($xml, $link, $key);
-	    }
-	    else if ( $type == 'teambox') {
-		$teambox_msg = teambox_rss($xml, $url);
-	    }
-	    else if ( $type == 'site') {
-		$site_msg = site_rss($xml, $url);
-	    }
-	    else if ( $type == 'atom') {
-		$atom_msg = atom_rss($xml, $url);
-	    }
-	}
+        foreach ( $links as $key => $link ) {
+            
+            $xml = @simplexml_load_file($link);
+            if ( ! $xml ) continue;
+
+            switch ($type) {
+            case 'git':
+                $git_msg .= git_rss($xml, $link, $key);
+                break;
+            case 'teambox':
+                $teambox_msg .= teambox_rss($xml, $url);
+                break;
+            case 'site':
+                $site_msg .= site_rss($xml, $url);
+                break;
+            case 'atom':
+                $atom_msg .= atom_rss($xml, $url);
+            }
+        }
     }
 
     $subject = $site_name . ' savaitės apžvalga';
