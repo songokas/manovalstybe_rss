@@ -6,7 +6,7 @@ require 'includes/rss.php';
 
 require 'includes/gapi.class.php';
 
-if ( $config['generate_statistics']) {
+if ( $config['generate_statistics'] ) {
     $ga = new gapi($config['ga_email'],$config['ga_password']);
     //get profile ids
     $ga->requestAccountData();
@@ -16,8 +16,8 @@ if ( $config['generate_statistics']) {
 	    $config[filename((string)$result)]['profile_id'] = $result->getProfileId();
     }
 }
-/*
-$profile_id =$config['kaveikiavaldzia']['profile_id'];
+
+/*$profile_id =$config['kaveikiavaldzia']['profile_id'];
 //last week visits
 $visits = get_visits( $ga, $profile_id, $config['from'], $config['to']);
 $prior_visits = get_visits( $ga, $profile_id, $config['prior_from'], $config['prior_to']);
@@ -26,8 +26,8 @@ $image_path = generate_image('kaveikiavaldzia.lt', $visits);
 $image_name = basename($image_path);
 include 'templates/stats.php';
 //var_dump($visits);
-die;
-*/
+die;*/
+
 
 
 //fetch rss
