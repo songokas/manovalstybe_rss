@@ -20,7 +20,7 @@ function get_visits( $gapi, $profile_id, $from, $to ) {
 	$arr = array();
 	while ( $dfrom <= $to && $day < 7) {
 	//var_dump($dfrom , $to);
-		$gapi->requestReportData($profile_id,array('browser','browserVersion'),array('pageviews','visits'), null, null, $dfrom, $to);
+		$gapi->requestReportData($profile_id,array('browser','browserVersion'),array('pageviews','visits'), null, null, $dfrom, $dfrom);
 		$arr[$dfrom] = $gapi->getVisits();
 		$dfrom = date('Y-m-d', strtotime("$dfrom + 1 day"));
 		$day++;
@@ -55,18 +55,13 @@ function git_rss ( $xml, $site, $module ) {
 
 function teambox_rss ( $xml, $site ) {
     global $lang, $config;
-    $msg = '';
-//    var_dump($xml->channel);
-    foreach ( $xml->channel->item as $node ) {
-	$date = date('Y-m-d', strtotime($node->pubDate));
-	if ( $date >= $config['from'] && $date <= $config['to']) {
-	    ob_start();
-	    include 'templates/teambox_tpl.php';
-	    $msg.=ob_get_clean();
-	}
-    }
+
+    ob_start();
+    include 'templates/teambox_tpl.php';
+    $msg=ob_get_clean();
+
     $l = $lang['teambox_title'];
-    return $msg ? $l.$msg : $l.$lang['nonews'];
+    return $exist ? $l.$msg : $l.$lang['nonews'];
 
 }
 

@@ -6,18 +6,18 @@ require 'includes/rss.php';
 
 require 'includes/gapi.class.php';
 
-
-/*$ga = new gapi($config['ga_email'],$config['ga_password']);
-//get profile ids
-$ga->requestAccountData();
-foreach($ga->getResults() as $result)
-{
-	//var_dump(filename($result),(string)$result,$result->getProfileId() );
-	$config[filename((string)$result)]['profile_id'] = $result->getProfileId();
-}*/
-
-
-/*$profile_id =$config['kaveikiavaldzia']['profile_id'];
+if ( $config['generate_statistics']) {
+    $ga = new gapi($config['ga_email'],$config['ga_password']);
+    //get profile ids
+    $ga->requestAccountData();
+    foreach($ga->getResults() as $result)
+    {
+	    //var_dump(filename($result),(string)$result,$result->getProfileId() );
+	    $config[filename((string)$result)]['profile_id'] = $result->getProfileId();
+    }
+}
+/*
+$profile_id =$config['kaveikiavaldzia']['profile_id'];
 //last week visits
 $visits = get_visits( $ga, $profile_id, $config['from'], $config['to']);
 $prior_visits = get_visits( $ga, $profile_id, $config['prior_from'], $config['prior_to']);
@@ -26,8 +26,8 @@ $image_path = generate_image('kaveikiavaldzia.lt', $visits);
 $image_name = basename($image_path);
 include 'templates/stats.php';
 //var_dump($visits);
-die;*/
-
+die;
+*/
 
 
 //fetch rss
@@ -68,8 +68,8 @@ foreach ( $config['links'] as $site_name => $site ) {
     ob_start();
     include 'templates/template.php';
     $msg=ob_get_clean();
-	//var_dump($config[$sitename]['profile_id']);
-	/*if ( isset($config[$site_name]['profile_id']) ) {
+    if ( $config['generate_statistics']) {
+	if ( isset($config[$site_name]['profile_id']) ) {
 		$profile_id = $config[$site_name]['profile_id'];
 		//get stats
 
@@ -83,11 +83,11 @@ foreach ( $config['links'] as $site_name => $site ) {
 		include 'templates/stats.php';
 		$stat_msg=ob_get_clean();
 		
-	}*/
+	}
 	
-	
+    }
     $fmsg = sprintf($msg, $git_msg, $teambox_msg, $site_msg, $atom_msg, $stat_msg);
-//    echo $fmsg;
-//    echo '</br>';
-    send_mail($config['mail_to'], $subject, $fmsg, $config['mail_from'], 'manovalstybe.lt');
+    echo $fmsg;
+    echo '</br>';
+    //send_mail($config['mail_to'], $subject, $fmsg, $config['mail_from'], 'manovalstybe.lt');
 }
