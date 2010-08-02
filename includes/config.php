@@ -3,8 +3,8 @@
 error_reporting(E_ALL ^ E_NOTICE);
 mb_internal_encoding("UTF-8");
 define('DROOT', $_SERVER['DOCUMENT_ROOT'].'/');
-//define('HOST', 'http://www.manovalstybe.lt/');
-define('HOST', '/');
+define('HOST', 'http://www.manovalstybe.lt/');
+//define('HOST', '/');
 define('APP_PATH', DROOT.'__scripts/');
 define('IMAGE_PATH', APP_PATH."cache/");
 define('IMAGE_URL', HOST."__scripts/cache/");
@@ -12,13 +12,14 @@ define('IMAGE_URL', HOST."__scripts/cache/");
 
 
 //gapi settings
-$config['ga_email'] = 'analytics_email@gmail.com';
-$config['ga_password'] = 'analytics_pass';
+$config['ga_email'] = 'manovalstybe.analytics@gmail.com';
+$config['ga_password'] = '';
 //this is not required since the script should fetch profile id itself
 $config['kaveikiavaldzia']['ga_profile_id'] = '25250222';
-$config['generate_statistics'] = 0;
+$config['generate_statistics'] = 1;
 
 //emails
+//$config['mail_to'] = 'bizabrazija@gmail.com';
 $config['mail_to'] = 'manovalstybe@googlegroups.com';
 $config['mail_from'] = 'apzvalga@manovalstybe.lt';
 
@@ -52,10 +53,10 @@ $lang['kaveikiavaldzia'] = 'KaVeikiaValdzia.lt';
 
 $lang['atom_title'] = '<h3>Diskusijos:</h3>';
 $lang['teambox_title'] = '<h3>Teambox diskusijos ir darbai:</h3>';
-$lang['site_title'] = '<h3><a href="http://%s">%s</a> tinklara�cio naujienos:</h3>';
+$lang['site_title'] = '<h3><a href="http://%s">%s</a> tinklaraščio naujienos:</h3>';
 $lang['git_title'] = '<h3><a href="%s">%s</a> kodo pakeitimai:</h3>';
 
 $lang['nochanges'] = '<p>Pakeitimu nera.</p><br/>';
 $lang['nonews'] = '<p>Naujienu nera.</p><br/>';
 //pchart utf-8 support issues
-$lang['days'] = array(1=>'Pir', 'Ant', 'Tre', 'Ket', 'Pen', 'Ses', /*'�e�',*/ 'Sek');
+$lang['days'] = array(1=>'Pir', 'Ant', 'Tre', 'Ket', 'Pen', 'Šeš','Sek');

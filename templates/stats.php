@@ -5,8 +5,8 @@
 <table>
 <tr>
   <th>&nbsp;</th>
-  <th>�i savaite</th>
-  <th>Praejusi savaite</th>
+  <th>Ši savaitė</th>
+  <th>Praėjusi savaitė</th>
   <th>Skirtumas</th>
 </tr>
 <tr>
