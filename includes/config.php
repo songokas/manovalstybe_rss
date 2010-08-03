@@ -19,7 +19,6 @@ $config['kaveikiavaldzia']['ga_profile_id'] = '25250222';
 $config['generate_statistics'] = 1;
 
 //emails
-//$config['mail_to'] = 'bizabrazija@gmail.com';
 $config['mail_to'] = 'manovalstybe@googlegroups.com';
 $config['mail_from'] = 'apzvalga@manovalstybe.lt';
 

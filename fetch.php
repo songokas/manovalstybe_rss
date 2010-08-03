@@ -87,7 +87,7 @@ foreach ( $config['links'] as $site_name => $site ) {
 	
     }
     $fmsg = sprintf($msg, $git_msg, $teambox_msg, $site_msg, $atom_msg, $stat_msg);
-    echo $fmsg;
-    echo '</br>';
-    //send_mail($config['mail_to'], $subject, $fmsg, $config['mail_from'], 'manovalstybe.lt');
+//    echo $fmsg;
+//    echo '</br>';
+    send_mail($config['mail_to'], $subject, $fmsg, $config['mail_from'], 'manovalstybe.lt');
 }
