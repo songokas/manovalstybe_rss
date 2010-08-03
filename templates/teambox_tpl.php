@@ -1,4 +1,4 @@
-<table>
+<table border="1">
 	<tbody>
 	<tr>
 		<th>time</th><th>user</th><th>message</th>
@@ -11,8 +11,8 @@
 	    $exist = true;
 	    //var_dump((string)$node->description != (string)$node->title, $node->description , $node->title);?>
 	    <tr>
-		    <td><?=$date?></td>
-		    <td><?=$node->author?></td>
+		    <td valign="top"><?=$date?></td>
+		    <td valign="top"><?=$node->author?></td>
 		    <td>
 			    <?/*
 			    <p><a href="<?=$node->link;?>"><?=$node->title?></a></p>

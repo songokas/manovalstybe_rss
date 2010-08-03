@@ -1,8 +1,8 @@
-<h3>Statistika:</h3>
+<h3>Lankomumo statistika:</h3>
 <br/>
 <img src="<?=IMAGE_URL.$image_name?>" alt="statistics" />
 
-<table>
+<table border="1">
 <tr>
   <th>&nbsp;</th>
   <th>Ši savaitė</th>

@@ -16,8 +16,8 @@ if ( $config['generate_statistics'] ) {
 	    $config[filename((string)$result)]['profile_id'] = $result->getProfileId();
     }
 }
-
-/*$profile_id =$config['kaveikiavaldzia']['profile_id'];
+/*
+$profile_id =$config['kaveikiavaldzia']['profile_id'];
 //last week visits
 $visits = get_visits( $ga, $profile_id, $config['from'], $config['to']);
 $prior_visits = get_visits( $ga, $profile_id, $config['prior_from'], $config['prior_to']);
@@ -87,7 +87,7 @@ foreach ( $config['links'] as $site_name => $site ) {
 	
     }
     $fmsg = sprintf($msg, $git_msg, $teambox_msg, $site_msg, $atom_msg, $stat_msg);
-//    echo $fmsg;
-//    echo '</br>';
-    send_mail($config['mail_to'], $subject, $fmsg, $config['mail_from'], 'manovalstybe.lt');
+    echo $fmsg;
+    echo '</br>';
+    //send_mail($config['mail_to'], $subject, $fmsg, $config['mail_from'], 'manovalstybe.lt');
 }

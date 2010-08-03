@@ -35,21 +35,15 @@ function get_visits( $gapi, $profile_id, $from, $to ) {
 function git_rss ( $xml, $site, $module ) {
     global $lang, $config;
     $msg = '';
-    foreach ( $xml->entry as $node ) {
-	$date = date('Y-m-d', strtotime($node->updated));
-//	var_dump($date, $config['to'], $date >= $config['from'] && $date <= $config['to']);
-	if ( $date >= $config['from'] && $date <= $config['to']) {
-	    $link_attr = $node->link->attributes();
-	    $link = $link_attr['href'];
-	    ob_start();
-	    include 'templates/git_tpl.php';
-	    $msg.=ob_get_clean();
-	}
-    }
+
+    ob_start();
+    include 'templates/git_tpl.php';
+    $msg=ob_get_clean();
+
     $pos = strpos($site, $module);
     $site = substr($site, 0 , $pos);
     $l = sprintf($lang['git_title'], $site.$module, $module);
-    return $msg ?  $l.$msg: $l.$lang['nochanges'];
+    return $exist ?  $l.$msg: $l.$lang['nochanges'];
     
 }
 
@@ -68,36 +62,22 @@ function teambox_rss ( $xml, $site ) {
 function site_rss ( $xml, $site ) {
     global $lang, $config;
     $msg = '';
-//    var_dump($xml->channel);
-    foreach ( $xml->channel->item as $node ) {
-	$date = date('Y-m-d', strtotime($node->pubDate));
-	if ( $date >= $config['from'] && $date <= $config['to']) {
-	    $child = $node->children('dc');
-	    ob_start();
-	    include 'templates/site_tpl.php';
-	    $msg.=ob_get_clean();
-	}
-    }
+    ob_start();
+    include 'templates/site_tpl.php';
+    $msg=ob_get_clean();
     $l = sprintf($lang['site_title'], $site, $site);
-    return $msg ? $l.$msg : $l.$lang['nonews'];
+    return $exist ? $l.$msg : $l.$lang['nonews'];
 
 }
 
 function atom_rss ( $xml, $site ) {
     global $lang, $config;
     $msg = '';
-    foreach ( $xml->entry as $node ) {
-	$date = date('Y-m-d', strtotime($node->updated));
-//	var_dump($date, $config['to'], $date >= $config['from'] && $date <= $config['to']);
-	if ( $date >= $config['from'] && $date <= $config['to']) {
-	    $link_attr = $node->link->attributes();
-	    $link = $link_attr['href'];
-	    ob_start();
-	    include 'templates/git_tpl.php';
-	    $msg.=ob_get_clean();
-	}
-    }
+
+    ob_start();
+    include 'templates/git_tpl.php';
+    $msg=ob_get_clean();
 
     $l = $lang['atom_title'];
-    return $msg ?  $l.$msg: $l.$lang['nonews'];
+    return $exist ?  $l.$msg: $l.$lang['nonews'];
 }

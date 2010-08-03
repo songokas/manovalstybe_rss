@@ -45,20 +45,6 @@ function generate_image( $site_name, $visits ) {
 		$points[] = $visit;
 
 		$text = $lang['days'][date('N', strtotime($date))];
-		# detect if the string was passed in as unicode
-		/*$text_encoding = mb_detect_encoding($text, 'UTF-8, ISO-8859-1');
-		
-		# make sure it's in unicode
-		if ($text_encoding != 'UTF-8') {
-			$text = mb_convert_encoding($text, 'UTF-8', $text_encoding);
-		}
-
-		# html numerically-escape everything (&#[dec];)
-		$text = mb_encode_numericentity($text,
-			array (0x0, 0xffff, 0, 0xffff, 0x160), 'UTF-8');
-		
-		var_dump($text, $text_encoding);*/
-
 		$names[] = $text;
 		 
 	}
@@ -90,11 +76,12 @@ function generate_image( $site_name, $visits ) {
 
 	 // Finish the graph
 	 $Test->setFontProperties($font,8);
-	 $Test->drawLegend(596,150,$DataSet->GetDataDescription(),255,255,255);
+//	 $Test->drawLegend(100,20,$DataSet->GetDataDescription(),255,255,255);
+	 $Test->drawLegend(610,10,$DataSet->GetDataDescription(),236,238,240,52,58,82);
 	 $Test->setFontProperties($font,10);
 	 $Test->drawTitle(50,22,$site_name,50,50,50,585);
 	 $path = IMAGE_PATH."$site_name.png";
-	 if ( file_exists(path) )
+	 if ( file_exists($path) )
 		unlink($path);
 	 $Test->Render($path);
 	 return $path;
