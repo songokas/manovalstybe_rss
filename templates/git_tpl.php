@@ -15,7 +15,6 @@
 		    <td valign="top"><a href="<?=$node->author->uri?>"><?=$node->author->name?></a></td>
 		    <td> 
 			<a href="<?=$link?>"><?=$node->title?></a>
-			<div><?=$node->content?></div>
 		    </td>
 	    </tr>
 	<? } ?>

@@ -2,10 +2,11 @@
 
 error_reporting(E_ALL ^ E_NOTICE);
 mb_internal_encoding("UTF-8");
-define('DROOT', $_SERVER['DOCUMENT_ROOT'].'/');
+
+define('DROOT', dirname(dirname(__FILE__)) . '/');
 define('HOST', 'http://www.manovalstybe.lt/');
 //define('HOST', '/');
-define('APP_PATH', DROOT.'__scripts/');
+define('APP_PATH', DROOT);
 define('IMAGE_PATH', APP_PATH."cache/");
 define('IMAGE_URL', HOST."__scripts/cache/");
 
