@@ -11,7 +11,10 @@
 
 %s
 
-<hr>
+%s
+
+
+<hr/>
 <p>Šią ataskaitą suformavo programėlė, kurios kodas prieinamas: <a href="http://github.com/tomasj/manovalstybe_rss.git">http://github.com/tomasj/manovalstybe_rss.git</a>.</p>
     </body>
 </html>
