@@ -1,5 +1,12 @@
 <?php 
 
+// Required classes:
+$includes = APP_PATH . "includes";
+require_once("$includes/class.phpmailer.php");
+require_once("$includes/pchart/pChart/pData.class");
+require_once("$includes/pchart/pChart/pChart.class");
+
+
 function _n ( $number ) {
 	if ( $number > 0 ) $number = '+'.$number;
 	return $number;
@@ -7,8 +14,8 @@ function _n ( $number ) {
 
 
 function send_mail ( $to , $subject, $msg, $from = null, $from_name=null ) {
-	require_once("includes/class.phpmailer.php");
-    	$mail_c = new PHPMailer();
+
+    $mail_c = new PHPMailer();
 	if ( $from ) {
 	    $mail_c->From = $from;
 	    $mail_c->FromName = $from_name;
@@ -26,10 +33,6 @@ function send_mail ( $to , $subject, $msg, $from = null, $from_name=null ) {
  //bar graph
 function generate_image( $site_name, $visits ) {
 	
-	 // Standard inclusions   
-	 include_once(APP_PATH."includes/pchart/pChart/pData.class");
-	 include_once(APP_PATH."includes/pchart/pChart/pChart.class");
-	 
 	 $font = APP_PATH."includes/pchart/Fonts/tahoma.ttf";
 	 //$font = APP_PATH."includes/pchart/Fonts/DejaVuSans.ttf";
 	 
