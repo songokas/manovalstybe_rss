@@ -37,7 +37,7 @@ function git_rss ( $xml, $site, $module ) {
     $msg = '';
 
     ob_start();
-    include 'templates/git_tpl.php';
+    include APP_PATH . 'templates/git_tpl.php';
     $msg=ob_get_clean();
 
     $pos = strpos($site, $module);
@@ -51,7 +51,7 @@ function teambox_rss ( $xml, $site ) {
     global $lang, $config;
 
     ob_start();
-    include 'templates/teambox_tpl.php';
+    include APP_PATH . 'templates/teambox_tpl.php';
     $msg=ob_get_clean();
 
     $l = $lang['teambox_title'];
@@ -63,7 +63,7 @@ function site_rss ( $xml, $site ) {
     global $lang, $config;
     $msg = '';
     ob_start();
-    include 'templates/site_tpl.php';
+    include APP_PATH . 'templates/site_tpl.php';
     $msg=ob_get_clean();
     $l = sprintf($lang['site_title'], $site, $site);
     return $exist ? $l.$msg : $l.$lang['nonews'];
@@ -75,7 +75,7 @@ function atom_rss ( $xml, $site ) {
     $msg = '';
 
     ob_start();
-    include 'templates/git_tpl.php';
+    include APP_PATH . 'templates/git_tpl.php';
     $msg=ob_get_clean();
 
     $l = $lang['atom_title'];
