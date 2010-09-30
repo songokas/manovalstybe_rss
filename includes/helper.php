@@ -25,7 +25,7 @@ function send_mail ( $to , $subject, $msg, $from = null, $from_name=null ) {
 	$mail_c->AddAddress($to);
 	$mail_c->WordWrap = 50;
 	$mail_c->Subject = $subject;
-	$mail_c->AltBody = "To view the message, please use an HTML compatible email viewer!";
+	//$mail_c->AltBody = "To view the message, please use an HTML compatible email viewer!";
 	$mail_c->MsgHTML($msg);
 	$mail_c->Send();
 }
