@@ -40,6 +40,7 @@ $config['links']['parasykjiems']['git']['parasykjiems'] = 'http://bitbucket.org/
 $config['links']['parasykjiems']['teambox'][] = 'http://teambox.com/projects/parasykjiems.rss?rss_token=aa3b431326f0f22fc43c09917606dde90eabb872103888';
 //
 $config['links']['kaveikiavaldzia']['git']['PolicyFeed'] = 'http://github.com/emilis/PolicyFeed/commits/master.atom';
+$config['links']['kaveikiavaldzia']['git']['PolicyFeed:development'] = 'http://github.com/emilis/PolicyFeed/commits/development.atom';
 $config['links']['kaveikiavaldzia']['git']['kaveikiavaldzia-design'] = 'http://github.com/emilis/kaveikiavaldzia-design/commits/master.atom';
 $config['links']['kaveikiavaldzia']['teambox'][] = 'http://teambox.com/projects/kaveikiavaldzia.rss?rss_token=aa3b431326f0f22fc43c09917606dde90eabb872103888';
 //$config['links']['kaveikiavaldzia']['atom'][] = 'http://www.facebook.com/feeds/page.php?format=atom10&id=248440466844';
