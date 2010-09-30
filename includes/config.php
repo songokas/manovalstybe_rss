@@ -24,10 +24,8 @@ $config['mail_to'] = 'manovalstybe@googlegroups.com';
 $config['mail_from'] = 'apzvalga@manovalstybe.lt';
 
 //dates
-if ( date('w') == 1 ) $config['from'] = date('Y-m-d', strtotime('-1 monday'));
-else $config['from'] = date('Y-m-d', strtotime('-2 monday'));
-
-$config['to'] = date('Y-m-d', strtotime('-1 sunday'));
+$config['from'] = date('Y-m-d', strtotime('-7 days')); 
+$config['to'] = date('Y-m-d', time());
 
 $config['prior_from'] = date('Y-m-d', strtotime($config['from'].' -1 week'));
 $config['prior_to'] = date('Y-m-d', strtotime($config['to'].' -1 week'));
