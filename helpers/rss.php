@@ -31,8 +31,9 @@ function get_visits( $gapi, $profile_id, $from, $to ) {
 
 
 
-function git_rss ( $xml, $site, $module ) {
-    global $lang, $config;
+function git_rss ( $xml ) {
+
+    global $config;
 
     $arr = array();
     foreach ( $xml->entry as $node ) {
@@ -51,14 +52,14 @@ function git_rss ( $xml, $site, $module ) {
 	 }
     }
 
-    $arr['empty'] = $lang['nochanges'];
-    $arr['title'] = sprintf($lang['git_title'], $site.$module, $module);
+
     return $arr;
     
 }
 
-function teambox_rss ( $xml, $site ) {
-    global $lang, $config;
+function teambox_rss ( $xml ) {
+
+    global $config;
 
     $arr = array();
     foreach ( $xml->channel->item as $node ) {
@@ -68,20 +69,19 @@ function teambox_rss ( $xml, $site ) {
 	    $obj->date = $date;
 	    $obj->author = $node->author;
 	    $obj->title = $node->title;
+	    $obj->title_link = $node->link;
 	    $obj->description = $node->description;
 	    $arr['nodes'][] = $obj;
 	 }
     }
 
-    $arr['empty'] = $lang['nonews'];
-    $arr['title'] = $lang['teambox_title'];
-
     return $arr;
 
 }
 
-function site_rss ( $xml, $site ) {
-    global $lang, $config;
+function site_rss ( $xml ) {
+
+    global $config;
     $arr = array();
     foreach ( $xml->channel->item as $node ) {
 	$date = date('Y-m-d', strtotime($node->pubDate));
@@ -98,8 +98,6 @@ function site_rss ( $xml, $site ) {
 	 }
     }
 
-    $arr['empty'] = $lang['nonews'];
-    $arr['title'] = sprintf($lang['site_title'], $site, $site);
 
     return $arr;
 }
@@ -146,6 +144,8 @@ function site_stats ( $site_name ) {
 }
 
 function process_site( $site_arr ) {
+
+    global $lang;
     
     $arr = array();
     foreach ( $site_arr as $type => $links ) {
@@ -157,17 +157,25 @@ function process_site( $site_arr ) {
             switch ($type) {
             case 'git':
                 $nodes = git_rss($xml, $link, $key);
+	        $nodes['empty'] = $lang['nochanges'];
+		$nodes['title'] = sprintf($lang['git_title'], $link, $key);
                 break;
             case 'teambox':
                 $nodes = teambox_rss($xml, $link);
+	        $nodes['empty'] = $lang['nonews'];
+		$nodes['title'] = $lang['teambox_title'];
                 break;
             case 'site':
                 $nodes = site_rss($xml, $link);
+		$nodes['empty'] = $lang['nonews'];
+		$nodes['title'] = sprintf($lang['site_title'], $link, $key);
                 break;
             case 'atom':
                 $nodes = git_rss($xml, $link);
+		$nodes['title'] = $lang['atom_title'];
+		break;
             }
-	    $arr[$type] = $nodes;
+	    $arr[$type][] = $nodes;
 
         }
     }

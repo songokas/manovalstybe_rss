@@ -20,8 +20,8 @@ $config['prior_from'] = date('Y-m-d', strtotime($config['from'].' -1 week'));
 $config['prior_to'] = date('Y-m-d', strtotime($config['to'].' -1 week'));
 
 //rss links
-$config['links']['manovalstybe']['site'][] = 'http://manovalstybe.lt/feed/';
-$config['links']['manovalstybe']['site'][] = 'http://manovalstybe.lt/en/feed/';
+$config['links']['manovalstybe']['site']['manovalstybe_lt'] = 'http://manovalstybe.lt/feed/';
+$config['links']['manovalstybe']['site']['manovalstybe_en'] = 'http://manovalstybe.lt/en/feed/';
 $config['links']['manovalstybe']['git']['manovalstybe-wp-theme'] = 'http://github.com/emilis/manovalstybe-wp-theme/commits/master.atom';
 $config['links']['manovalstybe']['git']['manovalstybe_rss'] = 'http://github.com/tomasj/manovalstybe_rss/commits/master.atom';
 

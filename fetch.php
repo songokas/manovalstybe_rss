@@ -13,7 +13,9 @@ foreach ( $config['links'] as $site_name => $site ) {
     $tpl = new Template();
     $arr_sites = process_site($site);
     foreach ( $arr_sites as $type => $elem ) {
-	$tpl->load($type, 'rss_template', $elem);
+	foreach ( $elem as $repo ) {
+	    $tpl->load($type, 'rss_template', $repo);
+	}
     }
 
     $arr_stats = site_stats($site_name);
@@ -24,7 +26,7 @@ foreach ( $config['links'] as $site_name => $site ) {
     $config['current_name'] = $lang[$site_name];
     $fmsg = $tpl->render(true);
 
-//    echo $fmsg;
+    echo $fmsg;
 //    echo '</br>';
-    send_mail($config['mail_to'], $subject, $fmsg, $config['mail_from'], 'manovalstybe.lt');
+//    send_mail($config['mail_to'], $subject, $fmsg, $config['mail_from'], 'manovalstybe.lt');
 }

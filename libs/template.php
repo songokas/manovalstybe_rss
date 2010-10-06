@@ -56,7 +56,11 @@ class Template {
 		$msg=ob_get_clean();
 		if ( $return )
 		    return $msg;
-		$this->tpl_arr[$type] = $msg;
+		//if template exists append
+		if ( isset($this->tpl_arr[$type]) )
+			$this->tpl_arr[$type] .= $msg;
+		else
+		    $this->tpl_arr[$type] = $msg;
 	}
 	else {
 	    throw new Exception('file not found '.$fullpath);
