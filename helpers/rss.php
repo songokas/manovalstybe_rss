@@ -33,19 +33,7 @@ function get_visits( $gapi, $profile_id, $from, $to ) {
 
 function git_rss ( $xml, $site, $module ) {
     global $lang, $config;
-    
-//    $msg = '';
-//
-//    ob_start();
-//    include APP_PATH . 'templates/git_tpl.php';
-//    $msg=ob_get_clean();
-//
-//    $pos = strpos($site, $module);
-//    $site = substr($site, 0 , $pos);
-//    $l = sprintf($lang['git_title'], $site.$module, $module);
-//    return $exist ?  $l.$msg: $l.$lang['nochanges'];
-//    var_dump($xml);die;
-    
+
     $arr = array();
     foreach ( $xml->entry as $node ) {
 	$date = date('Y-m-d', strtotime($node->updated));
@@ -71,24 +59,18 @@ function git_rss ( $xml, $site, $module ) {
 
 function teambox_rss ( $xml, $site ) {
     global $lang, $config;
-//
-//    ob_start();
-//    include APP_PATH . 'templates/teambox_tpl.php';
-//    $msg=ob_get_clean();
-//
-//    $l = $lang['teambox_title'];
-//    return $exist ? $l.$msg : $l.$lang['nonews'];
+
     $arr = array();
     foreach ( $xml->channel->item as $node ) {
 	$date = date('Y-m-d', strtotime($node->pubDate));
-//	if ( $date >= $config['from'] && $date <= $config['to']) {
+	if ( $date >= $config['from'] && $date <= $config['to']) {
 	    $obj = new stdClass();
 	    $obj->date = $date;
 	    $obj->author = $node->author;
 	    $obj->title = $node->title;
 	    $obj->description = $node->description;
 	    $arr['nodes'][] = $obj;
-//	 }
+	 }
     }
 
     $arr['empty'] = $lang['nonews'];
@@ -100,16 +82,10 @@ function teambox_rss ( $xml, $site ) {
 
 function site_rss ( $xml, $site ) {
     global $lang, $config;
-//    $msg = '';
-//    ob_start();
-//    include APP_PATH . 'templates/site_tpl.php';
-//    $msg=ob_get_clean();
-//    $l = sprintf($lang['site_title'], $site, $site);
-//    return $exist ? $l.$msg : $l.$lang['nonews'];
     $arr = array();
     foreach ( $xml->channel->item as $node ) {
 	$date = date('Y-m-d', strtotime($node->pubDate));
-//	if ( $date >= $config['from'] && $date <= $config['to']) {
+	if ( $date >= $config['from'] && $date <= $config['to']) {
 	    $child = $node->children('http://purl.org/dc/elements/1.1/');
 	    $obj = new stdClass();
 	    $obj->date = $date;
@@ -119,7 +95,7 @@ function site_rss ( $xml, $site ) {
 	    $obj->title = $node->title;
 	    $obj->title_link = $node->link;
 	    $arr['nodes'][] = $obj;
-//	 }
+	 }
     }
 
     $arr['empty'] = $lang['nonews'];
