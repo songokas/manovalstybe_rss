@@ -5,7 +5,7 @@ $config['ga_email'] = 'manovalstybe.analytics@gmail.com';
 $config['ga_password'] = '';
 //this is not required since the script should fetch profile id itself
 $config['kaveikiavaldzia']['ga_profile_id'] = '25250222';
-$config['generate_statistics'] = 1;
+$config['generate_statistics'] = 0;
 
 //emails
 $config['mail_to'] = 'manovalstybe@googlegroups.com';
