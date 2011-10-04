@@ -25,8 +25,8 @@ $config['links']['manovalstybe']['site']['manovalstybe_en'] = 'http://manovalsty
 $config['links']['manovalstybe']['git']['manovalstybe-wp-theme'] = 'http://github.com/emilis/manovalstybe-wp-theme/commits/master.atom';
 $config['links']['manovalstybe']['git']['manovalstybe_rss'] = 'http://github.com/tomasj/manovalstybe_rss/commits/master.atom';
 
-$config['links']['parasykjiems']['git']['parasykjiems'] = 'http://bitbucket.org/dariusdamalakas/parasykjiems/atom';
-$config['links']['parasykjiems']['teambox'][] = 'http://teambox.com/projects/parasykjiems.rss?rss_token=aa3b431326f0f22fc43c09917606dde90eabb872103888';
+//$config['links']['parasykjiems']['git']['parasykjiems'] = 'http://bitbucket.org/dariusdamalakas/parasykjiems/atom';
+//$config['links']['parasykjiems']['teambox'][] = 'http://teambox.com/projects/parasykjiems.rss?rss_token=aa3b431326f0f22fc43c09917606dde90eabb872103888';
 //
 $config['links']['kaveikiavaldzia']['git']['PolicyFeed'] = 'http://github.com/emilis/PolicyFeed/commits/master.atom';
 $config['links']['kaveikiavaldzia']['git']['PolicyFeed:development'] = 'http://github.com/emilis/PolicyFeed/commits/development.atom';
